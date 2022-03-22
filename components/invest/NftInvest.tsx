@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react'
 
 function NftInvest() {
+  console.log("test PR")
   return (
     <Container maxW='container.xl' p={0}>
       <Flex
