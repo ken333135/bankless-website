@@ -1,13 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
-import { Flex, Text, Container, VStack, Button, Box } from '@chakra-ui/react'
+import { Flex, Text, Container, VStack, Button, Box, Link } from '@chakra-ui/react'
 
 function GmiIndex() {
   return (
     <Container maxW={{ base: 'container.sm', md: 'container.lg' }} p={0}>
       <Flex flexDirection={{ base: 'column', md: 'row' }} py={10}>
         <VStack spacing={10}>
-          <Container display={'flex'} flexDirection={'column'} ml={['auto', 0]} width={['80%', '100%']}>
+          <Container
+            display={'flex'}
+            flexDirection={'column'}
+            ml={['auto', 0]}
+            width={['80%', '100%']}>
             <Text
               textAlign={{ base: 'center', md: 'left' }}
               fontWeight={700}
@@ -19,7 +23,7 @@ function GmiIndex() {
               <Box ml={2} width={75} height={'12px'} background={'red'} />
               <Box ml={2} width={75} height={'12px'} background={'red'} />
             </Flex>
-            < Text
+            <Text
               textAlign={{ base: 'center', md: 'left' }}
               color={'#D02128'}
               lineHeight='43px'
@@ -45,25 +49,23 @@ function GmiIndex() {
             justifyContent='space-evenly'
             alignItems={'center'}
             flexDirection={{ base: 'column', md: 'row' }}>
-            <Button
-              margin='10px 0px;'
-              onClick={() =>
-                window.open('https://app.indexcoop.com/gmi', '_blank')
-              }>
-              <Container padding={0} paddingRight={2}>
-                <Image
-                  src='/images/bed-token.png'
-                  alt='bed-token'
-                  height={23}
-                  width={23}
-                />
-              </Container>
-              Invest in GMI index
-            </Button>
+            <Link href='https://app.indexcoop.com/gmi' isExternal>
+              <Button as='a' textDecorationLine={'none'}>
+                <Container padding={0} paddingRight={2}>
+                  <Image
+                    src='/images/bed-token.png'
+                    alt='bed-token'
+                    height={23}
+                    width={23}
+                  />
+                </Container>
+                Invest in GMI index
+              </Button>
+            </Link>
           </Container>
         </VStack>
       </Flex>
-    </Container >
+    </Container>
   )
 }
 

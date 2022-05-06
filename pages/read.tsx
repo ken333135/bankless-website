@@ -1,11 +1,17 @@
-import PageContainer from 'components/common/page-container'
+import React from 'react'
 
-import Read from '../components/read'
+import Hero from '../components/read/hero'
+import { NewsletterList } from '../components/read/NewsletterList'
+import Satire from '../components/read/satire'
+import IntMediaNode from '../components/read/international-media-node'
 
 export default function ReadPage() {
   return (
-    <PageContainer>
-        <Read />
-    </PageContainer>
+    <>
+      <Hero />
+      <NewsletterList />
+      <Satire />
+      <IntMediaNode />
+    </>
   )
 }

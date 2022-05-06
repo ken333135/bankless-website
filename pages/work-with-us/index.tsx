@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react'
-import PageContainer from 'components/common/page-container'
 import IntroductionComponent from 'components/work-with-us/introduction'
-import ConsultComponent from 'components/work-with-us/consult'
-import SoftwareComponent from 'components/work-with-us/software'
-import ServiceComponent from 'components/work-with-us/service'
-import MarketComponent from 'components/work-with-us/market'
-import { Container } from '@chakra-ui/react'
+import carouselsData from '../../assets/content/pages/work-with-us/carouselContent.json'
+import Carousel from 'components/work-with-us/Carousel'
+import { ulid } from 'ulid'
 
 export default function WorkWithUsPage() {
+  // TODO : refactor this into a hook
   const [width, setWidth] = useState(0)
   useEffect(() => {
     setWidth(document.body.clientWidth)
@@ -19,14 +17,11 @@ export default function WorkWithUsPage() {
     })
 
   return (
-    <PageContainer>
-      <Container maxW={'5xl'}>
-        <IntroductionComponent />
-        <ConsultComponent width={width} />
-        <SoftwareComponent width={width} />
-        <ServiceComponent width={width} />
-        <MarketComponent width={width} />
-      </Container>
-    </PageContainer>
+    <>
+      <IntroductionComponent />
+      {carouselsData.map((carousel, index) => (
+        <Carousel width={width} carouselIndex={index} {...carousel} key={ulid()} />
+      ))}
+    </>
   )
 }
