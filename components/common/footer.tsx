@@ -129,7 +129,8 @@ class Footer extends React.Component {
                     href={_social.href}
                     target='_blank'
                     key={`social-${idx}`}
-                    margin={1}>
+                    mx={1}
+                    my={2}>
                     <Image
                       src={_social.img}
                       alt={_social.alt}
